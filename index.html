@@ -171,6 +171,85 @@ body.m .pg-h { margin: 36px 24px 0; }
 body.m .grid { margin: 26px 20px 0; flex: none; }
 body.m .safe { margin: auto 0 20px; padding-top: 12px; }
 
+
+/* ---------- 매출 탭 / 영수증 ---------- */
+.tab.go { pointer-events: inherit; cursor: pointer; font-family: inherit; }
+.scroll { position: absolute; top: 44px; left: 0; right: 0; bottom: 84px; overflow-y: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; }
+.s-head { position: sticky; top: 0; z-index: 3; background: #fff; }
+.s-title { height: 46px; display: flex; align-items: center; justify-content: space-between; padding: 0 16px 0 20px; font-size: 18px; font-weight: 700; }
+.s-bell { position: relative; width: 28px; height: 28px; }
+.s-bell::after { content: ""; position: absolute; top: 2px; right: 2px; width: 7px; height: 7px; border-radius: 50%; background: #ff5a4f; }
+.s-tabs { display: flex; padding: 0 20px; border-bottom: 1px solid var(--line); }
+.s-tab { position: relative; padding: 8px 0 11px; margin-right: 16px; font-size: 14px; color: #30343b; pointer-events: none; }
+.s-tab.on { font-weight: 700; color: var(--ink); }
+.s-tab.on::after { content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 2px; background: var(--g); }
+.mrow { display: flex; align-items: center; justify-content: space-between; padding: 18px 20px 10px; }
+.mrow .mo { display: flex; align-items: center; gap: 8px; font-size: 20px; font-weight: 700; }
+.mrow .mo i { width: 0; height: 0; border-top: 4px solid transparent; border-bottom: 4px solid transparent; }
+.mrow .mo i.l { border-right: 6px solid #3a3d44; } .mrow .mo i.r { border-left: 6px solid #c4c7ce; }
+.mrow .flt { display: flex; align-items: center; gap: 6px; font-size: 13px; color: #3a3d44; }
+.seg { display: flex; gap: 4px; padding: 0 20px 12px; }
+.seg span { padding: 7px 14px; border-radius: 8px; font-size: 13px; color: var(--sub); }
+.seg span.on { background: #f1f2f5; color: var(--ink); font-weight: 700; }
+.cal { display: grid; grid-template-columns: repeat(7, 1fr); padding: 0 6px 10px; border-top: 1px solid var(--line); }
+.cw { text-align: center; font-size: 12px; color: #30343b; padding: 10px 0 6px; }
+.cw.sun, .dn.sun { color: #f0524b; }
+.cd { display: flex; flex-direction: column; align-items: center; gap: 4px; height: 54px; padding-top: 2px; }
+.dn { width: 26px; height: 26px; line-height: 26px; text-align: center; font-size: 13px; border-radius: 50%; }
+.dn.off { color: #cfd2d8; } .dn.sun.off { color: #f6b8b5; }
+.dn.sel { background: var(--g); color: #fff; font-weight: 700; }
+.chip { font-size: 10px; line-height: 14px; padding: 0 3px; border-radius: 3px; background: var(--g-soft); color: #0aa66c; font-weight: 500; letter-spacing: -0.2px; }
+.chip.neg { background: #fdeceb; color: #e5484d; }
+.chip.off { opacity: .55; }
+.gap { height: 8px; background: #f4f5f7; }
+.sum { padding: 16px 20px; }
+.sum .r1, .sum .r2 { display: flex; justify-content: space-between; align-items: center; }
+.sum .r1 { font-size: 14px; font-weight: 700; } .sum .r1 b { font-size: 16px; }
+.sum .r2 { margin-top: 4px; font-size: 13px; color: var(--sub); } .sum .r2 span:last-child { color: var(--g); font-weight: 500; }
+.lh { display: flex; justify-content: space-between; align-items: center; padding: 18px 20px 8px; }
+.lh b { font-size: 17px; } .lh span { font-size: 12px; color: var(--sub); }
+.dh { margin: 10px 20px 4px; padding: 6px 0 12px; border-bottom: 1px solid var(--line); font-size: 13px; color: #6a6f79; }
+.li { display: flex; width: 100%; gap: 12px; align-items: flex-start; text-align: left; padding: 13px 20px; }
+.li:active { background: #f7f8fa; }
+.li .t { width: 34px; flex: none; font-size: 12px; padding-top: 2px; color: #30343b; }
+.li .m { flex: 1; min-width: 0; } .li .n { font-size: 14px; font-weight: 500; } .li .s { font-size: 12px; color: var(--sub); margin-top: 2px; }
+.li .r { text-align: right; } .li .a { font-size: 15px; font-weight: 700; } .li .st { font-size: 12px; color: var(--sub); margin-top: 2px; }
+.endpad { height: 64px; }
+.fab { position: absolute; right: 16px; bottom: 98px; z-index: 6; width: 36px; height: 36px; border-radius: 50%; background: #1f2126; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,.25); }
+.rc-scroll { position: absolute; top: 96px; left: 0; right: 0; bottom: 104px; overflow-y: auto; padding: 0 20px; font-size: 12px; line-height: 18px; }
+.rc-t { font-size: 20px; line-height: 28px; font-weight: 700; margin: 0 0 14px; }
+.rc-m { line-height: 18px; }
+.dd { height: 4px; border-top: 1px dashed #1a1a1a; border-bottom: 1px dashed #1a1a1a; margin: 12px 0; }
+.ds { border-top: 1px dashed #1a1a1a; margin: 10px 0; }
+.rr { display: flex; justify-content: space-between; gap: 16px; }
+.rr span:last-child { text-align: right; }
+.rr.h { margin-bottom: 2px; }
+.cta.gray { background: #f1f2f5; color: var(--ink); }
+.cta.gray:active { background: #e6e8ec; }
+body.m .scroll { position: static; flex: 1; min-height: 0; }
+body.m .s-title { height: 50px; }
+body.m .fab { bottom: 98px; }
+body.m .rc-scroll { position: static; flex: 1; min-height: 0; margin-top: 46px; }
+body.m #o-receipt .cta { margin: 14px 20px 24px; }
+
+
+/* ---------- 영수증(포스) / 취소 모달 ---------- */
+.screen.nobtn .rc-scroll { bottom: 24px; }
+.pr { display: grid; grid-template-columns: 1fr 56px 30px 64px; gap: 6px; }
+.pr span:not(:first-child) { text-align: right; }
+.pr.o span:first-child { padding-left: 2px; }
+.rc-sp { height: 6px; }
+.modal { position: absolute; inset: 0; z-index: 9; background: rgba(31,38,58,.5); display: flex; align-items: center; justify-content: center; padding: 0 40px; opacity: 0; visibility: hidden; transition: opacity .15s ease, visibility 0s linear .15s; }
+.modal.on { opacity: 1; visibility: visible; transition: opacity .15s ease; }
+.mc { width: 100%; background: #fff; border-radius: 20px; padding: 32px 20px 20px; text-align: center; }
+.mc p { margin: 0 0 26px; font-size: 16px; font-weight: 700; }
+.mb { display: flex; gap: 8px; }
+.mb button { flex: 1; height: 52px; border-radius: 8px; font-size: 15px; font-weight: 700; }
+.mb .b1 { background: #fff; border: 1px solid #e3e5ea; color: #30343b; }
+.mb .b2 { background: var(--g); color: #fff; }
+.mb .b2:active { background: var(--g-dark); }
+#cancelProc { z-index: 8; }
+
 @media (prefers-reduced-motion: reduce) {
   .screen, .toast, .key, .cta, .pm { transition: none; }
   .spin { animation-duration: 2s; }
@@ -206,12 +285,7 @@ body.m .safe { margin: auto 0 20px; padding-top: 12px; }
           <div class="amt" id="amt">0원</div>
           <div class="keys" id="keys"></div>
           <button class="cta" id="req" type="button" style="top:644px" disabled>결제 요청하기</button>
-          <nav class="tabbar" aria-hidden="true">
-            <div class="tab"><svg width="26" height="26" viewBox="0 0 26 26"><path d="M13 3.5 3.5 11v10.5h6.3v-6.2h6.4v6.2h6.3V11L13 3.5Z" fill="#a4a8b2"/></svg>홈</div>
-            <div class="tab"><svg width="26" height="26" viewBox="0 0 26 26"><path d="M5 3.5h12.5a2 2 0 0 1 2 2v15l-2.5-1.7-2.5 1.7-2.5-1.7-2.5 1.7-2.5-1.7L5 20.5v-17Z" fill="#a4a8b2"/><rect x="8" y="8" width="7" height="1.6" rx=".8" fill="#fff"/><rect x="8" y="12" width="7" height="1.6" rx=".8" fill="#fff"/></svg>매출</div>
-            <div class="tab act"><svg width="26" height="26" viewBox="0 0 26 26" fill="#09be79"><rect x="3" y="3" width="9" height="9" rx="2"/><rect x="14" y="3" width="9" height="9" rx="2"/><rect x="3" y="14" width="9" height="9" rx="2"/><rect x="14" y="14" width="4" height="4" rx="1"/><rect x="19" y="19" width="4" height="4" rx="1"/><rect x="5.5" y="5.5" width="4" height="4" rx="1" fill="#fff"/><rect x="16.5" y="5.5" width="4" height="4" rx="1" fill="#fff"/><rect x="5.5" y="16.5" width="4" height="4" rx="1" fill="#fff"/></svg>비상결제</div>
-            <div class="tab"><svg width="26" height="26" viewBox="0 0 26 26" fill="#a4a8b2"><circle cx="5.5" cy="13" r="2.2"/><circle cx="13" cy="13" r="2.2"/><circle cx="20.5" cy="13" r="2.2"/></svg>더보기</div>
-          </nav>
+          <nav class="tabbar" data-active="pay"></nav>
         </div>
 
         <!-- 2. QR -->
@@ -236,6 +310,51 @@ body.m .safe { margin: auto 0 20px; padding-top: 12px; }
           </div>
           <button class="cta" id="ok" type="button" style="bottom:32px">확인</button>
         </div>
+
+        <!-- 4. 매출 탭 -->
+        <div class="screen" id="o-sales">
+          <div class="scroll" id="salesScroll">
+            <div class="s-head">
+              <div class="s-title"><span>매출</span>
+                <svg class="s-bell" viewBox="0 0 28 28" fill="none"><path d="M14 4.5c-3.6 0-6 2.7-6 6.2v3.6L6 17.6V19h16v-1.4l-2-3.3v-3.6c0-3.5-2.4-6.2-6-6.2Z" fill="#a8acb6"/><path d="M11.6 21.2a2.5 2.5 0 0 0 4.8 0Z" fill="#a8acb6"/></svg>
+              </div>
+              <div class="s-tabs"><span class="s-tab on">캘린더</span><span class="s-tab">시간대별</span><span class="s-tab">결제수단별</span><span class="s-tab">상품별</span></div>
+            </div>
+            <div class="mrow">
+              <div class="mo"><i class="l"></i>2026.11<i class="r"></i></div>
+              <div class="flt">전체 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#3a3d44" stroke-width="1.4" stroke-linecap="round"><path d="M2 4.5h12M2 11.5h12"/><circle cx="10.5" cy="4.5" r="1.7" fill="#fff"/><circle cx="5.5" cy="11.5" r="1.7" fill="#fff"/></svg></div>
+            </div>
+            <div class="seg"><span class="on">월간</span><span>주간</span></div>
+            <div class="cal" id="cal"></div>
+            <div class="gap"></div>
+            <div class="sum">
+              <div class="r1"><span>순매출액 (11월)</span><b>600,000원</b></div>
+              <div class="r2"><span>전월 대비</span><span>+110,000원 (10%)</span></div>
+            </div>
+            <div class="gap"></div>
+            <div class="lh"><b id="listCnt">총 3건</b><span>최신순 ⇅</span></div>
+            <div class="dh">11월 11일 수요일</div>
+            <div id="list"></div>
+            <div class="endpad"></div>
+          </div>
+          <button class="fab" id="fab" type="button" aria-label="맨 위로"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m4 11.5 5-5 5 5"/></svg></button>
+          <nav class="tabbar" data-active="sales"></nav>
+        </div>
+
+        <!-- 5. 영수증 -->
+        <div class="screen" id="o-receipt">
+          <button class="back" id="rcBack" type="button" aria-label="닫기"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13.5 4.5 7 11l6.5 6.5"/></svg></button>
+          <div class="rc-scroll" id="rcBody"></div>
+          <button class="cta gray" id="rcCancel" type="button" style="bottom:32px">결제취소</button>
+        </div>
+
+        <!-- 결제취소 확인 모달 / 로딩 -->
+        <div class="modal" id="cancelModal" role="dialog" aria-modal="true" aria-label="결제 취소 확인">
+          <div class="mc"><p>결제를 취소할까요?</p>
+            <div class="mb"><button type="button" class="b1" id="mClose">닫기</button><button type="button" class="b2" id="mOk">취소할게요</button></div>
+          </div>
+        </div>
+        <div class="proc" id="cancelProc"><div class="spin"></div>결제를 취소하고 있어요</div>
 
         <div class="toast" id="toast" role="status" aria-live="polite">
           <div class="ti"><svg width="18" height="18" viewBox="0 0 26 26" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 13.5 4.8 4.8L20 8.5"/></svg></div>
@@ -491,7 +610,156 @@ body.m .safe { margin: auto 0 20px; padding-top: 12px; }
     if (isMobile()) goOwnerDone(); else show("#cust", "c-idle");
   });
 
+  /* ----- 탭바 / 매출 탭 / 영수증 ----- */
+  function tabsHTML(active) {
+    var home = '<div class="tab"><svg width="26" height="26" viewBox="0 0 26 26"><path d="M13 3.5 3.5 11v10.5h6.3v-6.2h6.4v6.2h6.3V11L13 3.5Z" fill="#a4a8b2"/></svg>홈</div>';
+    var salesIcon = active === "sales"
+      ? '<svg width="26" height="26" viewBox="0 0 26 26"><path d="M5 3.5h12.5a2 2 0 0 1 2 2v15l-2.5-1.7-2.5 1.7-2.5-1.7-2.5 1.7-2.5-1.7L5 20.5v-17Z" fill="#09be79"/><rect x="8" y="8" width="7" height="1.6" rx=".8" fill="#fff"/><rect x="8" y="12" width="5" height="1.6" rx=".8" fill="#fff"/><circle cx="19.5" cy="19.5" r="5.2" fill="#09be79" stroke="#fff" stroke-width="1.6"/><text x="19.5" y="22" font-size="7" font-weight="700" fill="#fff" text-anchor="middle">\u20A9</text></svg>'
+      : '<svg width="26" height="26" viewBox="0 0 26 26"><path d="M5 3.5h12.5a2 2 0 0 1 2 2v15l-2.5-1.7-2.5 1.7-2.5-1.7-2.5 1.7-2.5-1.7L5 20.5v-17Z" fill="#a4a8b2"/><rect x="8" y="8" width="7" height="1.6" rx=".8" fill="#fff"/><rect x="8" y="12" width="7" height="1.6" rx=".8" fill="#fff"/></svg>';
+    var c = active === "pay" ? "#09be79" : "#a4a8b2";
+    var payIcon = '<svg width="26" height="26" viewBox="0 0 26 26" fill="' + c + '"><rect x="3" y="3" width="9" height="9" rx="2"/><rect x="14" y="3" width="9" height="9" rx="2"/><rect x="3" y="14" width="9" height="9" rx="2"/><rect x="14" y="14" width="4" height="4" rx="1"/><rect x="19" y="19" width="4" height="4" rx="1"/><rect x="5.5" y="5.5" width="4" height="4" rx="1" fill="#fff"/><rect x="16.5" y="5.5" width="4" height="4" rx="1" fill="#fff"/><rect x="5.5" y="16.5" width="4" height="4" rx="1" fill="#fff"/></svg>';
+    var more = '<div class="tab"><svg width="26" height="26" viewBox="0 0 26 26" fill="#a4a8b2"><circle cx="5.5" cy="13" r="2.2"/><circle cx="13" cy="13" r="2.2"/><circle cx="20.5" cy="13" r="2.2"/></svg>더보기</div>';
+    return home +
+      '<button type="button" class="tab go' + (active === "sales" ? " act" : "") + '" data-go="sales">' + salesIcon + '매출</button>' +
+      '<button type="button" class="tab go' + (active === "pay" ? " act" : "") + '" data-go="pay">' + payIcon + '비상결제</button>' +
+      more;
+  }
+  document.querySelectorAll(".tabbar").forEach(function (nav) {
+    nav.innerHTML = tabsHTML(nav.dataset.active);
+    nav.addEventListener("click", function (e) {
+      var b = e.target.closest("[data-go]");
+      if (!b) return;
+      if (b.dataset.go === "sales") { show("#owner", "o-sales"); setHint("결제내역을 선택하면 영수증이 열려요"); }
+      else { show("#owner", "o-input"); setHint("금액을 입력하고 결제 요청하기를 눌러주세요"); }
+    });
+  });
+
+  var SALES = [
+    { type: "emg", time: "14:32", method: "네이버페이", amt: 23000, ap: "30118452", mid: "M20260312000142", at: "2026-11-11 14:32:18", no: "20261111-01-0006" },
+    { type: "pos", time: "13:52", at: "2026-11-11 13:52:07", no: "20261111-01-0005", lines: [
+        { n: "아이스 아메리카노", p: 4500, q: 2, opts: [{ n: "샷 추가", p: 500, q: 1 }] },
+        { n: "크로플", p: 6500, q: 1, opts: [] } ],
+      card: { co: "신한카드", no: "5421-12**-****-****", ap: "41872650" } },
+    { type: "emg", time: "12:07", method: "카카오페이", amt: 8500, ap: "30118377", mid: "M20260312000142", at: "2026-11-11 12:07:41", no: "20261111-01-0004" },
+    { type: "pos", time: "11:20", at: "2026-11-11 11:20:33", no: "20261111-01-0003", lines: [
+        { n: "카페라떼", p: 5000, q: 1, opts: [] },
+        { n: "바닐라 라떼", p: 5500, q: 1, opts: [] } ],
+      card: { co: "삼성카드", no: "4093-55**-****-****", ap: "41872511" } },
+    { type: "emg", time: "10:41", method: "네이버페이", amt: 12000, ap: "30118291", mid: "M20260312000142", at: "2026-11-11 10:41:05", no: "20261111-01-0002" },
+    { type: "pos", time: "09:15", at: "2026-11-11 09:15:48", no: "20261111-01-0001", lines: [
+        { n: "아메리카노", p: 4500, q: 1, opts: [] } ],
+      card: { co: "국민카드", no: "9430-21**-****-****", ap: "41872304" } }
+  ];
+  function num(n) { return Number(n).toLocaleString("ko-KR"); }
+  function posTotal(it) {
+    var t = 0;
+    it.lines.forEach(function (l) { t += l.p * l.q; l.opts.forEach(function (o) { t += o.p * o.q; }); });
+    return t;
+  }
+  SALES.forEach(function (it) { if (it.type === "pos") it.amt = posTotal(it); });
+
+  (function buildCal() {
+    var wk = ["월", "화", "수", "목", "금", "토", "일"], h = "", cells = [], d;
+    wk.forEach(function (w, i) { h += '<div class="cw' + (i === 6 ? " sun" : "") + '">' + w + "</div>"; });
+    for (d = 26; d <= 31; d++) cells.push({ d: d, off: true });
+    for (d = 1; d <= 30; d++) cells.push({ d: d });
+    for (d = 1; d <= 6; d++) cells.push({ d: d, off: true, next: true });
+    cells.forEach(function (c, i) {
+      var sun = i % 7 === 6, sel = !c.off && c.d === 11, chip = "";
+      if (!c.next && (c.off || c.d <= 11)) {
+        var neg = !c.off && (c.d === 4 || c.d === 9);
+        var v = (((c.d * 37) % 90) + 10) / 10;
+        chip = '<span class="chip' + (neg ? " neg" : "") + (c.off ? " off" : "") + '">' + (neg ? "-" : "") + v.toFixed(1) + "만</span>";
+      }
+      h += '<div class="cd"><span class="dn' + (sun ? " sun" : "") + (c.off ? " off" : "") + (sel ? " sel" : "") + '">' + c.d + "</span>" + chip + "</div>";
+    });
+    $("#cal").innerHTML = h;
+  })();
+
+  (function buildList() {
+    var h = "";
+    SALES.forEach(function (it, i) {
+      var name, sub;
+      if (it.type === "pos") {
+        name = it.lines[0].n + (it.lines.length > 1 ? " 외 " + (it.lines.length - 1) + "건" : "");
+        sub = "신용카드 | 포스주문";
+      } else { name = "-"; sub = "비상결제(" + it.method + ")"; }
+      h += '<button type="button" class="li" data-i="' + i + '"><span class="t">' + it.time + '</span><span class="m"><div class="n">' + name + '</div><div class="s">' + sub + '</div></span><span class="r"><div class="a">' + num(it.amt) + '원</div><div class="st">결제완료</div></span></button>';
+    });
+    $("#list").innerHTML = h;
+    $("#listCnt").textContent = "총 " + SALES.length + "건";
+  })();
+
+  /* ----- 영수증 렌더링 ----- */
+  function rr(l, r) { return '<div class="rr"><span>' + l + "</span><span>" + r + "</span></div>"; }
+  function pr(a, b, c, d, cls) { return '<div class="pr' + (cls ? " " + cls : "") + '"><span>' + a + "</span><span>" + b + "</span><span>" + c + "</span><span>" + d + "</span></div>"; }
+  function head(it, title) {
+    return '<h3 class="rc-t">' + title + '</h3><div class="rc-m"><div>[매장명] PayN 시연 매장</div><div>[매출일] ' + it.at.slice(0, 10) + "</div><div>[영수증번호] " + it.no + "</div></div>";
+  }
+  function receiptHTML(it, mode) {
+    var sign = mode === "cancel" ? "-" : "";
+    var sup = Math.round(it.amt / 1.1), vat = it.amt - sup, h;
+    if (mode === "pos") {
+      h = head(it, "영수증") + '<div class="dd"></div>' + pr("상품명", "단가", "수량", "금액") + '<div class="ds"></div>';
+      it.lines.forEach(function (l) {
+        h += pr(l.n, num(l.p), l.q, num(l.p * l.q));
+        l.opts.forEach(function (o) { h += pr("▶ " + o.n, num(o.p), o.q, num(o.p * o.q), "o"); });
+      });
+      h += '<div class="ds"></div>' + rr("과세금액", num(sup)) + rr("부가세", num(vat)) + '<div class="ds"></div>' +
+        rr("합계", num(it.amt)) + rr("할인금액", "0") + rr("받을금액", num(it.amt)) + rr("받은금액", num(it.amt)) + rr("거스름돈", "0") +
+        '<div class="dd"></div>' + rr("신용카드 승인정보 [고객용]", "") + rr("카드사명", it.card.co) + rr("카드번호", it.card.no) +
+        rr("할부개월", "일시불") + rr("승인번호", it.card.ap) + rr("승인일시", it.at) + rr("승인금액", num(it.amt)) + '<div class="dd"></div>';
+      return h;
+    }
+    h = head(it, mode === "cancel" ? "취소 영수증" : "영수증") + '<div class="dd"></div>' +
+      rr("과세금액", sign + num(sup)) + rr("부가세", sign + num(vat)) + '<div class="ds"></div>' + rr("합계", sign + num(it.amt)) +
+      '<div class="dd"></div>' + rr(mode === "cancel" ? "취소정보" : "승인정보", "") + rr("결제수단", it.method) + rr("할부개월", "일시불") +
+      rr("승인번호", it.ap) + rr("가맹점번호", it.mid) + rr(mode === "cancel" ? "취소일시" : "결제일시", mode === "cancel" ? it.cancelAt : it.at) + '<div class="dd"></div>';
+    return h;
+  }
+  var curIdx = -1;
+  function showReceipt(html, withBtn) {
+    $("#rcBody").innerHTML = html;
+    $("#rcBody").scrollTop = 0;
+    $("#o-receipt").classList.toggle("nobtn", !withBtn);
+    $("#rcCancel").style.display = withBtn ? "" : "none";
+  }
+  $("#list").addEventListener("click", function (e) {
+    var b = e.target.closest(".li");
+    if (!b) return;
+    curIdx = Number(b.dataset.i);
+    var it = SALES[curIdx], emg = it.type === "emg";
+    showReceipt(receiptHTML(it, emg ? "emg" : "pos"), emg);
+    show("#owner", "o-receipt");
+    setHint("← 를 누르면 결제내역으로 돌아가요");
+  });
+  $("#rcBack").addEventListener("click", function () {
+    $("#cancelModal").classList.remove("on");
+    show("#owner", "o-sales");
+    setHint("결제내역을 선택하면 영수증이 열려요");
+  });
+
+  /* ----- 결제취소 플로우 (비상결제 영수증만) ----- */
+  $("#rcCancel").addEventListener("click", function () { $("#cancelModal").classList.add("on"); });
+  $("#mClose").addEventListener("click", function () { $("#cancelModal").classList.remove("on"); });
+  $("#mOk").addEventListener("click", function () {
+    $("#cancelModal").classList.remove("on");
+    $("#cancelProc").classList.add("on");
+    later(function () {
+      var it = SALES[curIdx];
+      var t = it.at.slice(11).split(":").map(Number);
+      var sec = t[0] * 3600 + t[1] * 60 + t[2] + 260;
+      it.cancelAt = it.at.slice(0, 10) + " " + pad(Math.floor(sec / 3600)) + ":" + pad(Math.floor(sec % 3600 / 60)) + ":" + pad(sec % 60);
+      showReceipt(receiptHTML(it, "cancel"), false);
+      $("#cancelProc").classList.remove("on");
+      setHint("← 를 누르면 매출 화면으로 돌아가요");
+    }, 1300);
+  });
+  $("#fab").addEventListener("click", function () { $("#salesScroll").scrollTo({ top: 0, behavior: "smooth" }); });
+
   function resetAll() {
+    $("#cancelModal").classList.remove("on");
+    $("#cancelProc").classList.remove("on");
     clearTimers();
     clearTimeout(doneTimer); doneTimer = null;
     setView("owner");
